@@ -6,7 +6,6 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const userRouter = require("./src/routes/users.js");
 const cors = require('cors');
-const errorHandler = require('./src/middleware/authError.js');
 let db;
 
 const server = require('http').createServer(app);
@@ -26,9 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(userRouter)
-app.use(errorHandler)
+app.use("/uploads", express.static("uploads"));
 
 //This is the starting point of our application
 app.get('/', (req, res) => {
-    res.send('Welcome to emotorad backend system !!');
+    res.send('Welcome to blockchain voting system !!');
 });

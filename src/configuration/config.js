@@ -15,7 +15,7 @@ let dbConnection;
 module.exports = {
   // This function is used to connect to the MongoDB Atlas database
   connectToDb: (cb) => {
-    MongoClient.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
+    MongoClient.connect(mongoUri)
       .then((client) => {
         dbConnection = client.db();
         return cb();
