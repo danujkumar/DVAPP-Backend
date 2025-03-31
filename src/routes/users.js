@@ -3,8 +3,8 @@ const bodyParser = require("body-parser");
 const { getimage, post, approval } = require("../controllers/service");
 const router = express.Router();
 
-router.get("/getimage/:token", getimage);
-router.post("/post", post);
-router.post("/approval/:token", approval)
+router.get("/api/getimage/:token", getimage);
+router.post("/api/post", post);
+router.post("/api/approval/:token", approval)
 
 module.exports = router;
