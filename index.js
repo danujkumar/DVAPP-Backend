@@ -8,6 +8,8 @@ const userRouter = require("./src/routes/users.js");
 const cors = require('cors');
 let db;
 
+app.use(cors({ origin: '*' }));
+
 const server = require('http').createServer(app);
 
 // db connection
@@ -20,7 +22,6 @@ connectToDb((err) => {
     }
 });
 
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
