@@ -86,7 +86,7 @@ const getimage = asyncHandler(async (req, res) => {
 
     const finalData = {
       user: userData,
-      imageUrl: `${req.protocol}://${req.get("host")}/uploads/${userData.id}.${userData.photo.split(".").pop()}`,
+      imageUrl: `https://${req.get("host")}/uploads/${userData.id}.${userData.photo.split(".").pop()}`,
     };
 
     res.status(200).json(finalData);
