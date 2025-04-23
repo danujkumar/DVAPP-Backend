@@ -113,4 +113,17 @@ const approval = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { post, getimage, approval };
+const getAllUsers = asyncHandler(async (req, res) => {
+  try {
+    const allUsers = await User.find({});
+    if(!allUsers) {
+      return res.status(204).json({"data":null})
+    }
+
+    return res.status(200).json({"data":allUsers})
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+module.exports = { post, getimage, approval, getAllUsers };
