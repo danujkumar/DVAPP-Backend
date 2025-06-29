@@ -3,6 +3,7 @@ const express = require('express');
 const { connectToDb, getDb } = require('./src/configuration/config');
 const port = process.env.PORT || 3000;
 const app = express();
+const path = require('path')
 const cookieParser = require("cookie-parser");
 const userRouter = require("./src/routes/users.js");
 const cors = require('cors');
@@ -22,6 +23,7 @@ connectToDb((err) => {
     }
 });
 
+app.use('/models', express.static(path.join(__dirname, 'src', 'image')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
